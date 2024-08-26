@@ -75,3 +75,16 @@ require('lspconfig')['lua_ls'].setup {
 require('lspconfig')['bashls'].setup {
 	capabilities = capabilities
 }
+
+require('lspconfig')['gopls'].setup {
+    capabilities = capabilities
+}
+
+require('lspconfig')['jsonls'].setup {
+    capabilities = capabilities
+}
+
+require('lspconfig')['yamlls'].setup {
+    capabilities = capabilities
+}
+
