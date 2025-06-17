@@ -22,3 +22,9 @@ vim.opt.termguicolors = true
 
 -- fix eol on save
 vim.opt.fixeol = false
+
+-- Remove signs for warnings and errors
+vim.diagnostic.config({
+  signs = false
+})
+

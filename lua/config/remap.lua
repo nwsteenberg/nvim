@@ -13,6 +13,10 @@ vim.keymap.set('n', '<leader>sj', ":split")
 -- * Window navigation
 vim.keymap.set('n', '<leader>w', "<C-w>")
 
+-- Editor
+-- * Git
+vim.keymap.set('n', '<leader>gr', ":Gitsigns reset_hunk<CR>")
+
 -- LSP
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
