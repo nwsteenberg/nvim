@@ -4,6 +4,7 @@ vim.keymap.set('n', '<leader>e', ":NvimTreeFocus<CR>", { desc = 'Focus File Expl
 -- * Fzf
 vim.keymap.set('n', '<leader>ff', ":FzfLua files<CR>", { desc = 'Find files' })
 vim.keymap.set('n', '<leader>fg', ":FzfLua live_grep<CR>", { desc = 'Project live grep' })
+vim.keymap.set('n', '<leader>fd', ":FzfLua live_grep search_paths=", { desc = 'Project live grep with search path' })
 vim.keymap.set('n', '<leader>b', ":FzfLua buffers<CR>", { desc = 'Search buffers' })
 
 -- Views
