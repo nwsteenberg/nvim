@@ -1,22 +1,37 @@
--- Filesystem
--- * Explorer
-vim.keymap.set('n', '<leader>e', ":NvimTreeFocus<CR>", { desc = 'Focus File Explorer' })
--- * Fzf
-vim.keymap.set('n', '<leader>ff', ":FzfLua files<CR>", { desc = 'Find files' })
-vim.keymap.set('n', '<leader>fg', ":FzfLua live_grep<CR>", { desc = 'Project live grep' })
-vim.keymap.set('n', '<leader>fd', ":FzfLua live_grep search_paths=", { desc = 'Project live grep with search path' })
-vim.keymap.set('n', '<leader>b', ":FzfLua buffers<CR>", { desc = 'Search buffers' })
+local wk = require("which-key")
+wk.add({
+  -- FileSystem
+  -- * Explorer
+  { "<leader>e", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", desc = "Open File Explorer", mode = "n" },
+  -- * FzfLua
+  { "<leader>ff", "<cmd>FzfLua files %:p:h<cr>", desc = "", mode = "n" },
+  { "<leader>fg", "<cmd>FzfLua live_grep %:p:h<cr>", desc = "", mode = "n" },
+  { "<leader>fd", ":FzfLua live_grep search_paths=", desc = "", mode = "n" },
+  { "<leader>b", "<cmd>:FzfLua buffers<cr>", desc = "", mode = "n" },
+  -- Views
+  -- * Splits
+  { "<leader>sl", "<cmd>vsplit<cr>", desc = "Split Vertical" },
+  { "<leader>sj", "<cmd>split<cr>", desc = "Split Horizontal" },
+  -- * Window navigation
+  { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
+  -- Editor
+  -- * Git
+  { "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", desc = "Git reset visual hunk" },
+  { "<leader>gs", "<cmd>Git status<cr>", desc = "Display Git Status", mode = "n" },
+  -- * Remap < and >
+  { "<TAB>", ">>", mode = "n" },
+  { "<S-TAB>", "<<", mode = "n" },
+  { "<TAB>", ">gv", mode = "v" },
+  { "<S-TAB>", "<gv", mode = "v" },
 
--- Views
--- * Splits
-vim.keymap.set('n', '<leader>sl', ":vsplit")
-vim.keymap.set('n', '<leader>sj', ":split")
--- * Window navigation
-vim.keymap.set('n', '<leader>w', "<C-w>")
-
--- Editor
--- * Git
-vim.keymap.set('n', '<leader>gr', ":Gitsigns reset_hunk<CR>")
+  -- { "<leader>b", group = "buffers", expand = function()
+  --     return require("which-key.extras").expand.buf()
+  --   end
+  -- },
+  {
+    mode = { "n", "v" }, -- NORMAL and VISUAL mode
+  }
+})
 
 -- LSP
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -24,18 +39,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local opts = { buffer = ev.buf }
     -- Hover
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-
-    -- Code actions
-    vim.keymap.set({'n', 'v'}, '<leader>K', vim.lsp.buf.code_action, opts)
-
-    -- Goto
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, opts)
-
+    vim.keymap.set({ 'n', 'v' }, 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set({ 'n', 'v' }, 'L', vim.diagnostic.open_float, opts)
+    vim.keymap.set({ 'n', 'v' }, '<leader>K', vim.lsp.buf.code_action, opts)
     -- Rename
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     -- Format document
-    vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, opts)
+    vim.keymap.set('n', 'F', vim.lsp.buf.format, opts)
+    -- Goto
+    -- vim.keymap.set('n', '<leader>D', vim.lsp.buf.declaration, opts)
+    -- vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, opts)
   end
 })

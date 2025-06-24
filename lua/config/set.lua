@@ -1,12 +1,12 @@
 vim.cmd.colorscheme "kanagawa"
+-- indentmini color for kanagawa
+vim.cmd.highlight('IndentLine guifg=#2A2A37') -- darker than current
+vim.cmd.highlight('IndentLineCurrent guifg=#54546D')
 
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
+-- Clipboard
 vim.opt.clipboard = 'unnamedplus' -- use system keyboard for yank
-vim.api.nvim_set_option("clipboard","unnamedplus")
 
+-- General Editor
 vim.opt.nu = true                 -- set line numbers
 vim.opt.relativenumber = true     -- use relative line numbers
 
@@ -19,6 +19,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
 
 -- fix eol on save
 vim.opt.fixeol = false

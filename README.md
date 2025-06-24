@@ -5,3 +5,4 @@ Nvim Configuration
 
 * nvim
 * fzf
+* xclip (for wsl2 - windows clipboard compatability)
