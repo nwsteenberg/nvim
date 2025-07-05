@@ -11,7 +11,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "bashls", "dockerls" }
+        ensure_installed = { "lua_ls", "bashls", "dockerls", "gopls" }
       })
     end
   },
@@ -36,6 +36,9 @@ return {
         capabilities = capabilities
       })
       lspconfig.dockerls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.gopls.setup({
         capabilities = capabilities
       })
     end

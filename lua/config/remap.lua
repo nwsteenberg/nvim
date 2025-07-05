@@ -2,12 +2,12 @@ local wk = require("which-key")
 wk.add({
   -- FileSystem
   -- * Explorer
-  { "<leader>e", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", desc = "Open File Explorer", mode = "n" },
+  { "<leader>e", "<cmd>:Neotree focus position=float<cr>", desc = "Open File Explorer", mode = "n" },
   -- * FzfLua
-  { "<leader>ff", "<cmd>FzfLua files %:p:h<cr>", desc = "", mode = "n" },
-  { "<leader>fg", "<cmd>FzfLua live_grep %:p:h<cr>", desc = "", mode = "n" },
-  { "<leader>fd", ":FzfLua live_grep search_paths=", desc = "", mode = "n" },
-  { "<leader>b", "<cmd>:FzfLua buffers<cr>", desc = "", mode = "n" },
+  { "<leader>ff", "<cmd>FzfLua files %:p:h<cr>", desc = "Find Files", mode = "n" },
+  { "<leader>fg", "<cmd>FzfLua live_grep %:p:h<cr>", desc = "Grep for files", mode = "n" },
+  { "<leader>fd", ":FzfLua live_grep search_paths=", desc = "Grep for files, based on search path", mode = "n" },
+  { "<leader>b", "<cmd>:FzfLua buffers<cr>", desc = "Buffers", mode = "n" },
   -- Views
   -- * Splits
   { "<leader>sl", "<cmd>vsplit<cr>", desc = "Split Vertical" },
