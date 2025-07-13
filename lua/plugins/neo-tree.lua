@@ -9,6 +9,7 @@ return {
   lazy = false, -- neo-tree will lazily load itself
   opts = {
     -- add options here
+    use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes instead of relying on nvim autocmd events.
     window = {
       position = "float",
     },

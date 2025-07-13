@@ -5,7 +5,7 @@ return {
     local configs = require("nvim-treesitter.configs")
     configs.setup({
       ensure_installed = {
-        "lua", "vim", "vimdoc", "python", "go", "bash", "yaml", "dockerfile"
+        "lua", "vim", "vimdoc", "python", "go", "bash", "yaml", "dockerfile", "jsonc"
       },
       sync_install = false,
       highlight = { enable = true },
