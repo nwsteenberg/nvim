@@ -8,6 +8,8 @@ wk.add({
   { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Grep for files", mode = "n" },
   { "<leader>fd", ":FzfLua live_grep search_paths=", desc = "Grep for files, based on search path", mode = "n" },
   { "<leader>b", "<cmd>:FzfLua buffers<cr>", desc = "Buffers", mode = "n" },
+  -- * Open Project
+  { "<leader>o", "<cmd>:ProjectsOpen<cr>", desc = "Open Project", mode = "n" },
   -- Views
   -- * Splits
   { "<leader>sl", "<cmd>vsplit<cr>", desc = "Split Vertical" },
@@ -53,3 +55,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, opts)
   end
 })
+
+-- Copilot
+-- Copilot
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true

@@ -25,7 +25,9 @@ vim.opt.cursorline = true
 vim.opt.fixeol = false
 
 -- Remove signs for warnings and errors
-vim.diagnostic.config({
-  signs = false
-})
+-- vim.diagnostic.config({
+--   signs = false
+-- })
+
+vim.opt.autochdir = true
 
