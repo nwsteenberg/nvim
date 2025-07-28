@@ -29,5 +29,12 @@ vim.opt.fixeol = false
 --   signs = false
 -- })
 
-vim.opt.autochdir = false
-
+-- https://neovim.discourse.group/t/how-can-i-start-neovim-in-the-directory-from-the-command-line/3822
+local group_cdpwd = vim.api.nvim_create_augroup("group_cdpwd", { clear = true })
+vim.api.nvim_create_autocmd("VimEnter", {
+  group = group_cdpwd,
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
+  end,
+})
