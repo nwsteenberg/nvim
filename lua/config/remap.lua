@@ -9,7 +9,7 @@ wk.add({
   { "<leader>fd", ":FzfLua live_grep search_paths=", desc = "Grep for files, based on search path", mode = "n" },
   { "<leader>b", "<cmd>:FzfLua buffers<cr>", desc = "Buffers", mode = "n" },
   -- * Open Project
-  { "<leader>o", "<cmd>:ProjectsOpen<cr>", desc = "Open Project", mode = "n" },
+  { "<leader>o", "<cmd>:NeovimProjectDiscover<cr>", desc = "Open Project", mode = "n" },
   -- Views
   -- * Splits
   { "<leader>sl", "<cmd>vsplit<cr>", desc = "Split Vertical" },
